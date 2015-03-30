@@ -1,0 +1,31 @@
+{
+  "name": "3dtransforms",
+  "author": "Keith Baker",
+  "homepage": "http://keif.github.io",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/keif/3dtransforms"
+  },
+  "version": "0.0.1",
+  "dependencies": {
+    
+    },
+ "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-csslint": "~0.4.0",
+    "grunt-contrib-cssmin": "~0.12.2",
+    "grunt-contrib-imagemin": "~0.2.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.5.2",
+    "grunt-html-validation": "~0.1.18",
+    "grunt-recess": "~0.3.5",
+    "grunt-svgmin": "~0.2.0",
+    "load-grunt-tasks": "2.0.0",
+    "time-grunt": "1.0.0"
+  }
+}

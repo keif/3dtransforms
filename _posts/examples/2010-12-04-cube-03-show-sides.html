@@ -1,0 +1,64 @@
+---
+layout: example
+title: Dice - show sides
+category: examples
+---
+  <!-- temp -->
+  <link rel="stylesheet" href="{{ site.url }}/assets/css/main.css">
+</head>
+<body>
+
+  <h1>{{ page.title }}</h1>
+
+  <section class="container pyramid">
+    <section id="pyramid">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+  </section>
+
+  <section class="options">
+    <p id="show-pyramid-buttons">
+      <button class="show-front">Show 1</button>
+      <button class="show-back">Show 2</button>
+      <button class="show-right">Show 3</button>
+      <button class="show-left">Show 4</button>
+      <button class="show-random">Show Random</button>
+    </p>
+
+    <p>
+      <button id="toggle-backface-visibility-tetrahedron">Toggle Backface Visibility</button>
+    </p>
+  </section>
+
+  <section class="container cube">
+    <div id="cube" class="show-front">
+      <figure class="front">1</figure>
+      <figure class="back">2</figure>
+      <figure class="right">3</figure>
+      <figure class="left">4</figure>
+      <figure class="top">5</figure>
+      <figure class="bottom">6</figure>
+    </div>
+  </section>
+
+  <section class="options">
+    <p id="show-cube-buttons">
+      <button class="show-front">Show 1</button>
+      <button class="show-back">Show 2</button>
+      <button class="show-right">Show 3</button>
+      <button class="show-left">Show 4</button>
+      <button class="show-top">Show 5</button>
+      <button class="show-bottom">Show 6</button>
+      <button class="show-random">Show Random</button>
+    </p>
+
+    <p>
+      <button id="toggle-backface-visibility">Toggle Backface Visibility</button>
+    </p>
+  </section>
+
+  <script src="../js/utils.js"></script>
+  <script src="../js/rotate-box.js"></script>
