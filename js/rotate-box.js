@@ -7,43 +7,85 @@ getRandomInt = function (min, max) {
 
 init = function() {
     var tetrahedon,
+        showPyramidButtons,
         box,
         showCubeButtons,
+        visibilityButtons,
         panelClassName,
         onButtonClick,
+        onVisibilityClick,
         i,
         len;
 
+    // tetrahedon variables
     tetrahedon = document.querySelector(".container.pyramid").children[0];
+    showPyramidButtons = document.querySelectorAll("#show-pyramid-buttons button");
+
+    // cube variables
 	box = document.querySelector(".container.cube").children[0];
 	showCubeButtons = document.querySelectorAll("#show-cube-buttons button");
+
+    // all other variables
+    visibilityButtons = document.querySelectorAll(".toggle-backface-visibility");
 	panelClassName = "show-front";
+
+    // handle the die state change
 	onButtonClick = function(event) {
-        var className = event.target.className;
+        var className,
+            elemId,
+            elems,
+            buttons;
+
+        className = event.target.className;
+        elemId = this.offsetParent.firstElementChild.id;
+
+        if (elemId.indexOf("cube") > 0) {
+            elems = box;
+            buttons = showCubeButtons;
+        } else if (elemId.indexOf("pyramid") > 0) {
+            elems = tetrahedon;
+            buttons = showPyramidButtons;
+        }
 
         if (className === "show-random") {
-            className = showCubeButtons[getRandomInt(0,5)].className;
+            className = buttons[getRandomInt(0,5)].className;
         }
 
-		box.removeClassName( panelClassName );
+		elems.removeClassName( panelClassName );
 		panelClassName = className;
-		box.addClassName( panelClassName );
+		elems.addClassName( panelClassName );
 	};
 
-	for (i = 0, len = showCubeButtons.length; i < len; i++) {
-		showCubeButtons[i].addEventListener( "click", onButtonClick, false);
-	}
-	
-	document.getElementById("toggle-backface-visibility").addEventListener( "click", function(){
-        var elem;
-        if (this.offsetParent.firstElementChild.id.indexOf('cube') > 0) {
+    // handle the backface visibility
+    onVisibilityClick = function(){
+        var elemId,
+            elem;
+
+        elemId = this.offsetParent.firstElementChild.id;
+
+        if (elemId.indexOf("cube") > 0) {
             elem = box;
-        } else {
+        } else if (elemId.indexOf("pyramid") > 0) {
             elem = tetrahedon;
         }
+
         elem.toggleClassName("panels-backface-invisible");
-	}, false);
+    };
+
+    // loop through the six-sided die
+    for (i = 0, len = showCubeButtons.length; i < len; i++) {
+        showCubeButtons[i].addEventListener( "click", onButtonClick, false);
+    }
+
+    // loop through the four-sided die
+    for (i = 0, len = showPyramidButtons.length; i < len; i++) {
+        showPyramidButtons[i].addEventListener( "click", onButtonClick, false);
+    }
 	
+    // loop through the visibility buttons
+    for (i = 0, len = visibilityButtons.length; i < len; i++) {
+        visibilityButtons[i].addEventListener("click", onVisibilityClick, false);
+    }	
 };
 	
 window.addEventListener("DOMContentLoaded", init, false);

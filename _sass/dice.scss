@@ -1,3 +1,8 @@
+.panels-backface-invisible div,
+.panels-backface-invisible figure {
+  @include css3-prefix('backface-visibility', 'hidden');
+}
+
 .container {
   border: 1px solid #CCC;
   margin: 0 auto 40px;
@@ -118,10 +123,6 @@
   position: absolute;
   text-align: center;
   width: 196px;
-}
-
-#cube.panels-backface-invisible figure {
-  @include css3-prefix('backface-visibility', 'hidden');
 }
 
 #cube .front  { background: hsla(   0, 100%, 50%, 0.7 ); }
